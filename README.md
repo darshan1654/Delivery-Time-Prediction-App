@@ -20,7 +20,7 @@ The model is trained using the following pipeline:
 - Feature scaling using `StandardScaler`
 - Model: `LinearRegression`
 - Evaluation metrics: `MAE`, `R²`
-- Trained model is saved as `delivery_time_model.pkl`
+- Trained model is saved as `delivery_time_n_model.pkl`
 
 ## 📦 Installation
 
