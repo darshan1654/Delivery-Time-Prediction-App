@@ -1,4 +1,5 @@
-#delivery_training_model.py
+# Training_model
+
 import pandas as pd
 import numpy as np
 import pickle
@@ -24,9 +25,8 @@ data = pd.DataFrame({
     "delivery_type": np.random.choice(["Residential", "Commercial"], n)
 })
 
-# Apply logic to simulate target variable (delivery_time)
+# Simulate delivery time (target)
 def simulate_delivery_time(row):
-    # Base time
     if row.shipping_method == "Standard":
         time = np.random.randint(3, 7)
     elif row.shipping_method == "Express":
@@ -34,7 +34,6 @@ def simulate_delivery_time(row):
     else:
         time = 1
 
-    # Adjustments
     if row.customer_location == "Rural":
         time += 2
     if row.weather in ["Rainy", "Snowy", "Stormy"]:
@@ -56,24 +55,28 @@ def simulate_delivery_time(row):
 
 data["delivery_time"] = data.apply(simulate_delivery_time, axis=1)
 
-# Encode categorical variables
-data_enc = pd.get_dummies(data.drop(columns=["delivery_time"]), drop_first=True)
+# Encode features
+X = pd.get_dummies(data.drop(columns=["delivery_time"]), drop_first=True)
 y = data["delivery_time"]
 
-# Split & scale
-X_train, X_test, y_train, y_test = train_test_split(data_enc, y, test_size=0.2, random_state=42)
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Model
+# Train model
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
-# Evaluation
+# Evaluate
 y_pred = model.predict(X_test)
 print("MAE:", mean_absolute_error(y_test, y_pred))
 print("R² Score:", r2_score(y_test, y_pred))
 
-# Save model
-with open("models/delivery_time_model.pkl", "wb") as f:
-    pickle.dump({"model": model, "features": data_enc.columns.tolist()}, f)
+# Save model and feature columns
+os.makedirs("models", exist_ok=True)
+with open("models/delivery_time_n_model.pkl", "wb") as f:
+    pickle.dump({
+        "model": model,
+        "features": X.columns.tolist()
+    }, f)
 
-print("✅ Model trained successfully and saved!!")
+print("✅ Model trained successfully with scikit-learn 1.6.1 and saved!")
