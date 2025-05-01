@@ -35,16 +35,12 @@ The model is trained using the following pipeline:
 
 ---
 
-## 📁 File Structure
-
----
-
 ## 📦 Installation
 
 ### Clone the repository
 ```bash
-git clone https://github.com/your-username/delivery-time-prediction-app.git
-cd delivery-time-prediction-app
+git clone https://github.com/darshan1654/Delivery-Time-Prediction-App.git
+cd Delivery-Time-Prediction-App
 ```
 
 ```bash
@@ -58,7 +54,7 @@ streamlit run App.py
 ---
 
 ## **📝** License
-MIT License.
+!(MIT License)
 
 ---
 
