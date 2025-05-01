@@ -5,6 +5,8 @@ import pickle
 from PIL import Image
 import time
 
+st.set_page_config(page_title="Delivery Time Prediction App", page_icon="📦")
+
 # Load trained model
 with open("models/delivery_time_n_model.pkl", "rb") as f:
     model_data = pickle.load(f)
