@@ -9,19 +9,9 @@ This is a **Streamlit-based web application** that predicts delivery time for an
 - Predicts delivery time in days.
 - Uses a trained machine learning model stored in a `.pkl` file.
 - Clean and user-friendly UI built with Streamlit.
-- Input features include:
-  - Product Category
-  - Customer Location
-  - Shipping Method
-  - Shipping Priority
-  - Weather Condition
-  - Package Weight
-  - Package Size
-  - Distance to Destination
-  - Nearby Warehouse Availability
-  - Delivery Type
+- Input features include: Product Category, Customer Location, Shipping Method, Shipping Priority, Weather Condition, Package Weight, Package Size, Distance, Warehouse Availability, Delivery Type
+- Output feature: Delivery Time
 
----
 
 ## 🧠 Model Training
 
@@ -31,9 +21,8 @@ The model is trained using the following pipeline:
 - Feature scaling using `StandardScaler`
 - Model: `LinearRegression`
 - Evaluation metrics: `MAE`, `R²`
-- Trained model is saved as `wait_time_model2.pkl`
+- Trained model is saved as `delivery_time_model.pkl`
 
----
 
 ## 📦 Installation
 
@@ -51,12 +40,10 @@ pip install -r requirements.txt
 streamlit run App.py
 ```
 
----
 
 ## **📝** License
-!(MIT License)
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
----
 
 ## **🙌** Acknowledgements
 Streamlit for frontend development
