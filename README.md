@@ -45,19 +45,24 @@ The model is trained using the following pipeline:
 ```bash
 git clone https://github.com/your-username/delivery-time-prediction-app.git
 cd delivery-time-prediction-app
+```
 
+```bash
 pip install -r requirements.txt
+```
 
-streamlit run streamlit_app.py
+```bash
+streamlit run App.py
+```
 
 ---
 
-##📝 License
+## **📝** License
 MIT License.
 
 ---
 
-##🙌 Acknowledgements
+## **🙌** Acknowledgements
 Streamlit for frontend development
 
 Scikit-learn for model building
